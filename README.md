@@ -8,7 +8,7 @@
 
 The following ER Diagram illustrates the database schema:
 
-![ER Diagram](erdiagram.png)
+![ER Diagram](screenshots/erdiagram.png)
 
 ### Key Design Choices
 - **Dynamic Categories & Custom Attributes**: The `Attributes` and `ProductAttributeValues` tables support flexible attributes per category without schema changes.
