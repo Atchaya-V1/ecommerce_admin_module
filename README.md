@@ -62,6 +62,8 @@ PY
 $env:FLASK_APP = "app.py"
 python app.py
 
+exit
+
 ---
 
 ## 📂 Project Outputs
