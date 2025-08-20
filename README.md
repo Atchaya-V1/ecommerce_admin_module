@@ -1,6 +1,16 @@
 # Ecommerce Catalog Admin Tool (Flask + SQLite)
 
-A minimal internal tool for managing product categories, attributes, and products with category-specific attributes.
+**Ecommerce internal admin tool** to manage dynamic product categories, attributes, and products with customizable attribute values.
+
+---
+
+## Table of Contents
+- [Database Design (ERD)](#step-1-database-design)
+- [Class Design (UML)](#step-2-class-design)
+- [Implementation & Usage](#step-3-implementation--usage)
+- [File Structure](#file-structure)
+- [Future Improvements](#future-improvements)
+- [License & Contact](#license--contact)
 
 ---
 
