@@ -17,6 +17,9 @@ The following ER Diagram illustrates the database schema:
   - Primary and foreign keys enforce relationships.
   - Unique constraints prevent duplicate codes or values.
   - Schema-driven approach helps keep data consistent as the platform scales.
+- **Normalization**: Categories, attributes, and products are separated into different tables to avoid redundancy.  
+- **Flexibility**: New categories/attributes can be added dynamically without schema changes.  
+- **Future-Proofing**: Supports new categories (e.g., phones, television) with minimal code changes.
 
 ---
 
@@ -31,6 +34,9 @@ The class diagram below outlines the structure of your Python classes:
 - **Attribute**: Stores metadata (`data_type`, `options_json`) and provides validation via `parse_and_validate`.
 - **Product**: Associates with multiple `ProductAttributeValue` objects to manage attribute data.
 - **ProductAttributeValue**: Encapsulates data type-specific storage and conversion logic.
+- `Category` manages multiple `Attribute`s  
+- `Product` is linked to a category and stores attribute values  
+- Key methods include `createCategory()`, `addAttribute()`, `createProduct()`, `updateProduct()`  
 
 ---
 
@@ -55,3 +61,9 @@ PY
 # Launch the Flask app
 $env:FLASK_APP = "app.py"
 python app.py
+
+## Future Improvements
+- Use **Flask-Migrate** for schema migrations
+- Add **authentication** and **role-based access**
+- Implement **bulk import/export**, search, and dashboards
+
