@@ -4,16 +4,6 @@
 
 ---
 
-## Table of Contents
-- [Database Design (ERD)](#step-1-database-design)
-- [Class Design (UML)](#step-2-class-design)
-- [Implementation & Usage](#step-3-implementation--usage)
-- [File Structure](#file-structure)
-- [Future Improvements](#future-improvements)
-- [License & Contact](#license--contact)
-
----
-
 ##  Step 1: Database Design (ERD)
 
 The following ER Diagram illustrates the database schema:
