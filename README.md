@@ -1,16 +1,48 @@
-# Keyswecommerce Catalog Admin (Flask + SQLite)
+# Ecommerce Catalog Admin Tool (Flask + SQLite)
 
-A minimal internal tool to manage product categories, attributes, and products with category-specific attributes.
+A minimal internal tool for managing product categories, attributes, and products with category-specific attributes.
 
-## Quickstart (Windows PowerShell)
+---
 
+##  Step 1: Database Design (ERD)
+
+The following ER Diagram illustrates the database schema:
+
+![ER Diagram](erdiagram.png)
+
+### Key Design Choices
+- **Dynamic Categories & Custom Attributes**: The `Attributes` and `ProductAttributeValues` tables support flexible attributes per category without schema changes.
+- **Typed Storage**: `ProductAttributeValues` uses typed columns (`text`, `int`, `decimal`, `boolean`, `date`) to support efficient queries per data type.
+- **Normalization & Integrity**:
+  - Primary and foreign keys enforce relationships.
+  - Unique constraints prevent duplicate codes or values.
+  - Schema-driven approach helps keep data consistent as the platform scales.
+
+---
+
+##  Step 2: Class Design (UML Class Diagram)
+
+The class diagram below outlines the structure of your Python classes:
+
+![Class Diagram](class_diag.png)
+
+### Highlights
+- **Category**: Contains logic for managing attributes and products.
+- **Attribute**: Stores metadata (`data_type`, `options_json`) and provides validation via `parse_and_validate`.
+- **Product**: Associates with multiple `ProductAttributeValue` objects to manage attribute data.
+- **ProductAttributeValue**: Encapsulates data type-specific storage and conversion logic.
+
+---
+
+##  Step 3: Implementation & Usage
+
+###  Quick Start (using PowerShell on Windows)
 ```powershell
-# From the project root (keyswecommerce)
 python -m venv .venv
-. .venv\Scripts\Activate.ps1
+.\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 
-# (Optional) Initialize database from SQL schema
+# Initialize database
 python - << 'PY'
 from app import create_app
 from models import db
@@ -20,21 +52,6 @@ with app.app_context():
 print('Database initialized at catalog.db')
 PY
 
-# Or use DB Browser: open schema.sql and execute to create tables and seed data
-
-# Run the dev server
+# Launch the Flask app
 $env:FLASK_APP = "app.py"
 python app.py
-```
-
-Open `http://localhost:5000`.
-
-## Managing Category-specific Attributes
-- Create attributes with types like `text`, `number`, `decimal`, `boolean`, `date`, `select`, `multiselect`.
-- Assign attributes to a category via `Categories → Manage`.
-- While creating/editing a product, selecting a category will auto-load its attributes.
-
-## Notes
-- SQLite file is `catalog.db`. You can open it with DB Browser for SQLite.
-- The schema in `schema.sql` mirrors the ORM models, so either approach works.
-- To add new categories like smartphones or watches, create the category then assign attributes (e.g., OS/RAM/Battery for smartphones; Dial Color/Size/Strap for watches).
