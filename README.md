@@ -62,8 +62,22 @@ PY
 $env:FLASK_APP = "app.py"
 python app.py
 
+---
+
+## 📂 Project Outputs
+
+All project output screenshots are available in the **`screenshots/`** folder:
+
+- 🛒 **Products** – Product module output  
+- 📑 **Catalog** – Catalog management output  
+- 🎛 **Attributes** – Attributes management output  
+- 🗄 **DB Browser Tables** – Database schema and sample tables
+
+---
+
 ## Future Improvements
 - Use **Flask-Migrate** for schema migrations
 - Add **authentication** and **role-based access**
 - Implement **bulk import/export**, search, and dashboards
 
+---
