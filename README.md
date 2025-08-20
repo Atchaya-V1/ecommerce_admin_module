@@ -27,7 +27,7 @@ The following ER Diagram illustrates the database schema:
 
 The class diagram below outlines the structure of your Python classes:
 
-![Class Diagram](class_diag.png)
+![Class Diagram](screenshots/class_diag.png)
 
 ### Highlights
 - **Category**: Contains logic for managing attributes and products.
