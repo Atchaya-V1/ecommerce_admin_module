@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="main-header">
+    <h3>Dashboard</h3>
+  </div>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body d-flex align-items-center justify-content-between">
+          <div>
+            <h6 class="text-muted mb-1">Categories</h6>
+            <div class="display-5">{{ stats.categories }}</div>
+          </div>
+          <span class="badge-soft">Total</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body d-flex align-items-center justify-content-between">
+          <div>
+            <h6 class="text-muted mb-1">Attributes</h6>
+            <div class="display-5">{{ stats.attributes }}</div>
+          </div>
+          <span class="badge-soft">Defined</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body d-flex align-items-center justify-content-between">
+          <div>
+            <h6 class="text-muted mb-1">Products</h6>
+            <div class="display-5">{{ stats.products }}</div>
+          </div>
+          <span class="badge-soft">Published</span>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

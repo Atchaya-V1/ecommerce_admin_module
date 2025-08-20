@@ -1,0 +1,38 @@
+:root{
+	--brand-start: #0f172a; /* charcoal */
+	--brand-end:   #1f2937; /* slate */
+	--accent:      #00b894; /* emerald */
+	--accent-hover:#00a084;
+	--card-shadow: 0 10px 25px rgba(0,0,0,.08);
+	--border-soft: rgba(0,0,0,.08);
+}
+
+body{ background-color:#f6f7fb; color:#1f2937; }
+
+.navbar{ background-image:linear-gradient(90deg,var(--brand-start),var(--brand-end)); }
+.navbar-brand{ font-weight:700; letter-spacing:.3px; }
+.nav-link{ opacity:.9; }
+.nav-link:hover{ opacity:1; }
+
+.main-header{ display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem; }
+.main-header h3{ margin:0; font-weight:700; }
+
+.card{ box-shadow:var(--card-shadow); border:none; border-radius:14px; background:#ffffff; }
+.card .display-5{ font-weight:700; }
+
+.table{ background:#fff; border-radius:12px; overflow:hidden; box-shadow:var(--card-shadow); }
+.table thead th{ background:#eef2f7; border-bottom:1px solid var(--border-soft); color:#0f172a; }
+.table-hover tbody tr:hover{ background:#fbfcfe; }
+
+.btn-primary{ background-color:var(--accent); border-color:var(--accent); }
+.btn-primary:hover{ background-color:var(--accent-hover); border-color:var(--accent-hover); }
+.btn-outline-secondary:hover{ color:#111; background:#eef2f7; }
+
+.btn-pill{ border-radius:999px; padding:.45rem .9rem; }
+.badge-soft{ background:rgba(0,184,148,.12); color:var(--accent); border-radius:999px; padding:.35rem .6rem; font-weight:600; }
+
+.form-card{ background:#fff; border-radius:14px; padding:1.25rem; box-shadow:var(--card-shadow); }
+.form-label{ font-weight:600; }
+.help-text{ color:#6c757d; font-size:.9rem; }
+
+footer{ color:#6c757d; margin-top:2rem; }

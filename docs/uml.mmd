@@ -1,0 +1,57 @@
+%% Product Catalog UML Class Diagram (Mermaid)
+%% Paste this into https://mermaid.live and click Download PNG
+
+classDiagram
+  class Category {
+    +int id
+    +str name
+    +str description
+    +bool is_active
+    +products: List~Product~
+    +attributes: List~CategoryAttribute~
+  }
+
+  class Attribute {
+    +int id
+    +str name
+    +str data_type
+    +bool is_required
+    +str options
+    +categories: List~CategoryAttribute~
+  }
+
+  class CategoryAttribute {
+    +int id
+    +int category_id
+    +int attribute_id
+    +category: Category
+    +attribute: Attribute
+  }
+
+  class Product {
+    +int id
+    +str name
+    +str sku
+    +str description
+    +float price
+    +int category_id
+    +datetime created_at
+    +category: Category
+    +attributes: List~ProductAttributeValue~
+  }
+
+  class ProductAttributeValue {
+    +int id
+    +int product_id
+    +int attribute_id
+    +str value
+    +product: Product
+    +attribute: Attribute
+  }
+
+  Category "1" --> "*" Product : has
+  Category "1" --> "*" CategoryAttribute : maps
+  Attribute "1" --> "*" CategoryAttribute : maps
+  Product "1" --> "*" ProductAttributeValue : stores
+  Attribute "1" --> "*" ProductAttributeValue : typed_by
+  Category "*" .. "*" Attribute : uses

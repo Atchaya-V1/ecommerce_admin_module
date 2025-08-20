@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h3>Attributes</h3>
+    <a class="btn btn-primary" href="{{ url_for('create_attribute') }}">New Attribute</a>
+  </div>
+
+  <table class="table table-bordered align-middle">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Options</th>
+        <th width="180">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for a in attributes %}
+      <tr>
+        <td>{{ a.id }}</td>
+        <td>{{ a.name }}</td>
+        <td>{{ a.data_type }}</td>
+        <td>{{ 'Yes' if a.is_required else 'No' }}</td>
+        <td><small class="text-muted">{{ a.options }}</small></td>
+        <td>
+          <a class="btn btn-sm btn-warning" href="{{ url_for('edit_attribute', attribute_id=a.id) }}">Edit</a>
+          <form class="d-inline" action="{{ url_for('delete_attribute', attribute_id=a.id) }}" method="post" onsubmit="return confirm('Delete attribute?');">
+            <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

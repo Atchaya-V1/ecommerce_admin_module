@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h3>{{ 'Edit Category' if category else 'New Category' }}</h3>
+  <form method="post">
+    <div class="mb-3">
+      <label class="form-label">Name</label>
+      <input name="name" class="form-control" value="{{ category.name if category else '' }}" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+      <textarea name="description" class="form-control" rows="3">{{ category.description if category else '' }}</textarea>
+    </div>
+    <div class="form-check mb-3">
+      <input class="form-check-input" type="checkbox" id="is_active" name="is_active" {% if category and category.is_active %}checked{% endif %}>
+      <label class="form-check-label" for="is_active">Active</label>
+    </div>
+    <button class="btn btn-primary" type="submit">Save</button>
+    <a class="btn btn-secondary" href="{{ url_for('list_categories') }}">Cancel</a>
+  </form>
+{% endblock %}

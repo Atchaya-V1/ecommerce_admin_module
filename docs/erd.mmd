@@ -1,0 +1,47 @@
+%% Product Catalog ERD (Mermaid)
+%% Paste this into https://mermaid.live and click Download PNG
+
+erDiagram
+  CATEGORIES ||--o{ PRODUCTS : has
+  CATEGORIES ||--o{ CATEGORY_ATTRIBUTES : maps
+  ATTRIBUTES  ||--o{ CATEGORY_ATTRIBUTES : maps
+  PRODUCTS    ||--o{ PRODUCT_ATTRIBUTE_VALUES : stores
+  ATTRIBUTES  ||--o{ PRODUCT_ATTRIBUTE_VALUES : typed_by
+
+  CATEGORIES {
+    INT id PK
+    TEXT name
+    TEXT description
+    BOOL is_active
+  }
+
+  ATTRIBUTES {
+    INT id PK
+    TEXT name
+    TEXT data_type
+    BOOL is_required
+    TEXT options
+  }
+
+  CATEGORY_ATTRIBUTES {
+    INT id PK
+    INT category_id FK
+    INT attribute_id FK
+  }
+
+  PRODUCTS {
+    INT id PK
+    TEXT name
+    TEXT sku
+    TEXT description
+    REAL price
+    INT category_id FK
+    DATETIME created_at
+  }
+
+  PRODUCT_ATTRIBUTE_VALUES {
+    INT id PK
+    INT product_id FK
+    INT attribute_id FK
+    TEXT value
+  }

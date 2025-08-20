@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h3>{{ 'Edit Attribute' if attribute else 'New Attribute' }}</h3>
+  <form method="post">
+    <div class="mb-3">
+      <label class="form-label">Name</label>
+      <input name="name" class="form-control" value="{{ attribute.name if attribute else '' }}" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Data Type</label>
+      <select name="data_type" class="form-select">
+        {% set dt = attribute.data_type if attribute else 'text' %}
+        <option value="text" {% if dt=='text' %}selected{% endif %}>Text</option>
+        <option value="number" {% if dt=='number' %}selected{% endif %}>Number</option>
+        <option value="decimal" {% if dt=='decimal' %}selected{% endif %}>Decimal</option>
+        <option value="boolean" {% if dt=='boolean' %}selected{% endif %}>Boolean</option>
+        <option value="date" {% if dt=='date' %}selected{% endif %}>Date</option>
+        <option value="select" {% if dt=='select' %}selected{% endif %}>Select</option>
+        <option value="multiselect" {% if dt=='multiselect' %}selected{% endif %}>Multi Select</option>
+      </select>
+      <div class="form-text">Use select/multiselect for enumerations like color or strap type.</div>
+    </div>
+    <div class="form-check mb-3">
+      <input class="form-check-input" type="checkbox" id="is_required" name="is_required" {% if attribute and attribute.is_required %}checked{% endif %}>
+      <label class="form-check-label" for="is_required">Required</label>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Options (comma-separated)</label>
+      <input name="options" class="form-control" value="{{ attribute.options if attribute else '' }}">
+    </div>
+    <button class="btn btn-primary" type="submit">Save</button>
+    <a class="btn btn-secondary" href="{{ url_for('list_attributes') }}">Cancel</a>
+  </form>
+{% endblock %}
